@@ -1,0 +1,17 @@
+li {
+    font-size: 1.2em;
+    overflow: hidden;
+}
+
+.well {
+    margin: 0 0 7px -5px;
+}
+
+/*li:hover {
+    background-color: #c3c3c3;
+}
+
+li.select {
+    background-color: #c3c3c3;
+    color: #eeeeee;
+}*/

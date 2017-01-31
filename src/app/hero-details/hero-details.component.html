@@ -1,0 +1,35 @@
+<div class="row" *ngIf="hero">
+    <h2>{{hero.name}} details!</h2>
+    <div class="col-xs-6 col-sm-4">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-xs-2">Id:</label>
+
+                <div class="col-xs-10">
+                    <span>{{ hero.id  }}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-2">Name:</label>
+
+                <div class="col-xs-10">
+                    <input class="form-control" name="inputName" placeholder="Name" [(ngModel)]="hero.name">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <button class="btn btn-primary" (click)="goBack()">Go Back</button>
+                    <button class="btn btn-info" (click)="save()">save</button>
+                </div>
+            </div>
+        </form>
+        <div class="form-group">
+            <div class="col-xs-12">
+                <input id="me" class="form-control" #box (keyup.enter)="onUpdate(box.value)"
+                (blur)="onUpdate(box.value); box.value=''">
+            </div>
+            <ul>{{ title }}</ul>
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-8"></div>
+</div>

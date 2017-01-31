@@ -1,0 +1,29 @@
+<div class="row">
+    <h2 class="text-muted">My Heroes</h2>
+    <div class="col-xs-8 col-md-4">
+        Hero name: <input #heroname name="newHero" [(ngModel)]="newHero.name">
+        <button class="btn btn-info" (click)="addHero(); heroname.value=''">Add</button>
+        {{ newHero | json }}
+    </div>
+    <div class="col-xs-4 col-md-8"></div>
+</div>
+<div class="row">
+    <div class="col-xs-8 col-md-4">
+        <ul class="list-unstyled text-muted">
+            <li *ngFor="let hero of heroes" class="well well-sm" (click)="onSelect(hero)"
+                [class.select]="hero == selectedHero"
+                [@heroState]="hero.state" (click)="hero.toggleState()"
+                (@heroState.done)="animationDone($event)">
+                <span class="badge">{{ hero.id }}</span> {{ hero | json }}
+                <button (click)="delete(hero.id); $event.stopPropagation();">&times;</button>
+            </li>
+        </ul>
+    </div>
+    <div class="col-xs-4 col-md-8"></div>
+</div>
+
+<!--<app-hero-details [hero]="selectedHero"></app-hero-details>-->
+<div *ngIf="selectedHero">
+    <h2>{{ selectedHero.name }} is my Hero</h2>
+    <button (click)="goDetail()">View Details</button>
+</div>
